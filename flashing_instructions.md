@@ -1,6 +1,6 @@
 # CLEAN FLASH WITH AOSP RECOVERY
 
-1.) Download the boot , dtbo  and vendor_boot images  from [HERE](https://sourceforge.net/projects/poco-x5-pro-roms/files/EvolutionX/Android-14/Recovery/).  [all files are in zip file so kindly unzip that file.]
+1.) Download the boot , dtbo  and vendor_boot images  from [HERE](https://sourceforge.net/projects/poco-x5-pro-roms/files/Aosp_Recovery_Fts%2BGoodix/).  [all files are in zip file so kindly unzip that file.]
 
 2.) Connect To Pc
 
