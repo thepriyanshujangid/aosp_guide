@@ -1,6 +1,6 @@
 # 📱 POCO X5 Pro Flashing Guide
 
-A step-by-step guide for clean and dirty flashing with AOSP Recovery or TWRP, including how to flash firmware.  
+A step-by-step guide for clean and dirty flashing with AOSP Recovery, including the correct way to flash firmware.  
 **Beginner-friendly, efficient, and easy to follow!**
 
 ---
@@ -94,16 +94,15 @@ Flashing the latest firmware can fix compatibility or hardware issues.
 
 - **Permanent firmware page:** [POCO X5 Pro Firmware (xmfirmwareupdater.com)](https://xmfirmwareupdater.com/firmware/redwood/)
 
-### How to Flash Firmware
+### How to Flash Firmware (AOSP Recovery)
 
 1. **Download the latest firmware zip** for your device from the link above.  
    (File is usually named like `fw_redwood_miui_REDWOOD...zip`)
-2. **Transfer the firmware zip** to your PC (or leave it in your downloads folder).
-3. **Boot into recovery** (AOSP or TWRP):
+2. **Boot into AOSP recovery**:
     - Power off your phone.
     - Hold **Power** + **Volume Up** until recovery starts.
-4. In recovery, select **Apply Update from ADB**.
-5. On your PC, run:
+3. In recovery, select **Apply Update from ADB**.
+4. On your PC, run:
 
     ```
     adb sideload fw_redwood_xxxxx.zip
@@ -111,11 +110,8 @@ Flashing the latest firmware can fix compatibility or hardware issues.
 
    *(Replace `fw_redwood_xxxxx.zip` with the actual firmware file name.)*
 
-6. Wait for the process to complete.
-7. (Optional) After flashing firmware, you can sideload your ROM or reboot the system.
-
-> **Tip:**  
-> Flashing firmware does **not wipe your data** but is often recommended before a major ROM update or if you face modem/boot issues.
+5. Wait for the process to complete.
+6. (Optional) After flashing firmware, you can sideload your ROM or reboot the system.
 
 ---
 
@@ -142,75 +138,4 @@ sudo $(which fastboot) flash vendor_boot vendor_boot.img
 ```
 
 ---
-
-## 🛡️ Flashing ROM with TWRP
-
-### 1. Download & Prepare
-
-- Download [twrp-TheStrechh-R2.img](https://sourceforge.net/projects/poco-x5-pro-roms/files/Twrp/twrp-TheStrechh-R2.img/download)
-- Download [Platform Tools for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) or [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
-- Extract platform tools and copy `boot.img` and `twrp-TheStrechh-R2.img` into the folder.
-
-### 2. Boot into TWRP
-
-- Open terminal in the platform-tools folder.
-- Run:
-
-    ```
-    fastboot boot twrp-TheStrechh-R2.img
-    ```
-
-- Your phone will boot into TWRP.
-
-### 3. Permanently Install TWRP
-
-- In TWRP: Go to **Advanced** → **Flash current TWRP** → Confirm.
-
----
-
-### 📦 Flash ROM with TWRP (Option 1: Install from Storage)
-
-1. Download the ROM and transfer it to your phone.
-2. In TWRP: **Install** → select your `ROM.zip` → **Swipe to confirm**.
-3. (For clean flash) Go to **Wipe** → **Format Data** and **Wipe Cache** (Advanced Wipe).
-4. (Optional) Change active slot: **Reboot** → **Slot A/B** (choose the opposite of your current slot).
-5. In TWRP: **Advanced** → **Flash current TWRP** (to keep TWRP after reboot).
-6. Reboot system.
-
----
-
-### 💻 Flash ROM with TWRP (Option 2: ADB Sideload)
-
-1. In TWRP: **Wipe** → **Format Data** → type `yes`.
-2. In TWRP: **Advanced** → **ADB Sideload**.
-3. On your PC, run:
-
-    ```
-    adb sideload rom.zip
-    ```
-
-4. In TWRP: **Advanced** → **Flash current TWRP**.
-5. (Optional) Reboot recovery and flash GApps or other add-ons.
-6. Reboot system.
-
----
-
-## 📝 Additional Tips
-
-- **Always back up your data before flashing.**
-- If you encounter errors, double-check file names and paths.
-- For best results, use official cables and USB 2.0 ports.
-
----
-
 **You’re ready to flash! If you have questions, check your device’s community or support forums for help.**
-```
-
----
-
-**How to use:**  
-- Copy everything above (including the four backticks at the top and bottom).
-- Paste it into your GitHub `.md` file.
-- Save and preview for a complete, beginner-friendly, and efficient flashing guide—including the correct firmware flashing method!
-
-Let me know if you want further refinements, screenshots, or visual enhancements!
