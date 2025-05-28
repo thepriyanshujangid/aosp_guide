@@ -1,90 +1,216 @@
-# CLEAN FLASH WITH AOSP RECOVERY
+# 📱 POCO X5 Pro Flashing Guide
 
-1.) Download the boot , dtbo  and vendor_boot images  from [HERE](https://sourceforge.net/projects/poco-x5-pro-roms/files/Aosp_Recovery_Fts%2BGoodix/).  [all files are in zip file so kindly unzip that file.]
+A step-by-step guide for clean and dirty flashing with AOSP Recovery or TWRP, including how to flash firmware.  
+**Beginner-friendly, efficient, and easy to follow!**
 
-2.) Connect To Pc
+---
 
-3.) Reboot to fastboot  ( press  both power_button_key + vol_down_key ) and follow the steps as given below.
+## 🗂️ What You Need
 
-	fastboot flash vendor_boot  vendor_boot.img
+- **Unlocked bootloader** on your POCO X5 Pro  
+- **Windows, Mac, or Linux** computer  
+- **USB cable**  
+- [Platform Tools (ADB & Fastboot)](https://developer.android.com/tools/releases/platform-tools)  
+- ROM, recovery images, firmware, and add-ons (see download links below)
 
-	fastboot flash dtbo dtbo.img 
+---
 
-  	fastboot flash boot boot.img
+## 🚀 Clean Flash with AOSP Recovery
 
-	fastboot reboot recovery
+**This method wipes your data. Recommended for major updates or switching ROMs.**
 
-	Select Wipe Data/factory Reset & Confirm
+### 1. Download Required Files
 
-	Select 'apply Update' From Adb
+- Download `boot.img`, `dtbo.img`, and `vendor_boot.img` from [AOSP Recovery FTS+Goodix (SourceForge)](https://sourceforge.net/projects/poco-x5-pro-roms/files/Aosp_Recovery_Fts%2BGoodix/)
+- Unzip the file to extract the images.
 
-	adb sideload  Rom_Name.zip
+### 2. Connect Your Phone to the PC
 
-	Select Wipe Data/factory Reset & Confirm
+- Use a reliable USB cable.
 
-	After Installation Complete, Reboot System.
+### 3. Enter Fastboot Mode
 
-	( optional ). Reboot to recovery to sideload any add-ons ( e.g magisk, firmware, gapps etc )
+- Power off your phone.
+- Hold **Power** + **Volume Down** until you see the fastboot screen.
 
+### 4. Flash Recovery Images
 
+Open a terminal (CMD/PowerShell on Windows, Terminal on Mac/Linux) in the folder with your images, then run:
 
-# DIRTY FLASH ( Without data format )
+```
+fastboot flash vendor_boot vendor_boot.img
+fastboot flash dtbo dtbo.img
+fastboot flash boot boot.img
+fastboot reboot recovery
+```
 
-1. Reboot to recover by holding power button and volume up simultaneously
+### 5. Wipe Data / Factory Reset
 
-2. In the recovery menu select Apply update through ADB
+- In recovery, select **Wipe Data/Factory Reset** and confirm.
 
-3. adb sideload Rom_name*.zip ( or drag down the rom zip to cmd )
+### 6. Sideload the ROM
 
-4. After installation complete, Reboot system.
+- In recovery, select **Apply Update from ADB**.
+- On your PC, run:
 
-# Change partition slots ( optional )
+    ```
+    adb sideload Rom_Name.zip
+    ```
 
-If your device does not change slot automatically, you can do it manually just follow the given steps.
-	adb reboot bootloader
+### 7. Wipe Data Again
 
-	fastboot getvar current-slot
+- After sideload completes, select **Wipe Data/Factory Reset** again and confirm.
 
-	fastboot --set-active=b ( for eg. your current active slot is A so you would want your current slot to set be on B )
+### 8. Reboot System
 
-	fastboot reboot
+- Reboot your device to system.
 
- # Linux fastboot permission issue 
+### 9. (Optional) Sideload Add-ons
 
- Try using sudo $(which fastboot) instead of  fastboot 
+- To flash Magisk, GApps, or other add-ons, reboot to recovery and repeat the sideload process.
 
-for eg.
+---
 
-	sudo $(which fastboot) devices
-	
- 	sudo $(which fastboot) flash vendor_boot  vendor_boot.img
-  
-  and so on.
+## ⚡ Dirty Flash (Update Without Data Wipe)
 
+**Use this if you want to update your ROM without losing your data.**
 
-  #  How to flash rom with TWRP?
+1. Reboot to recovery (**Power** + **Volume Up**).
+2. Select **Apply Update from ADB**.
+3. On your PC, run:
 
-- Before doing the following you should be sure that your bootloader is unlocked.
+    ```
+    adb sideload Rom_Name.zip
+    ```
 
-- Download twrp-TheStrechh-RX.img from [HERE](https://sourceforge.net/projects/poco-x5-pro-roms/files/Twrp/twrp-TheStrechh-R2.img/download), and platform tools from HERE [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) and [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+4. After installation, select **Reboot System**.
 
-- Extract platform tools in C:\  and copy boot.img in folder.
-- Open terminal (CMD) in local folder and paste this command fastboot boot twrp-TheStrechh-R2.img , then click enter.
-- Device boot in TWRP interface go to Advance and select Flash current TWRP and confirm.
-   Done, you have TWRP installed fine, now can reboot system.
+---
 
-First option
+## 🆕 Flashing Firmware (Beginner Friendly)
 
-	Download ROM, then go to Install -> select your ROM.zip -> Confirm.
-	Back to TWRP Home, Go to wipe -> format data -> wipe cache from advanced wipe (For clean flashes only. If you are just updating, ignore this step).
-	Back to TWRP Home, Go to reboot -> and change active slot. If active slot was A, select B. Or if active slot was B, select A. There is an indicator there shows active slot.
-	Back to TWRP Home, go to Advanced -> flash current TWRP . If you forget this step, you'll lose TWRP after reboot.
-	Now reboot system and enjoy.
+Flashing the latest firmware can fix compatibility or hardware issues.  
+**Always use the correct firmware for your device and region!**
 
-Second option
+- **Permanent firmware page:** [POCO X5 Pro Firmware (xmfirmwareupdater.com)](https://xmfirmwareupdater.com/firmware/redwood/)
 
- 	Boot in TWRP -> format data -> yes
-	Install the ROM with adb sideload -> adb sideload rom.zip in adb termianl.
-	Back to TWRP Home, go to Advanced -> flash current TWRP . If you forget this step, you'll lose TWRP after reboot.
-	Reboot recovery and flash the gapps of your choice.
-	Now reboot system and enjoy.
+### How to Flash Firmware
+
+1. **Download the latest firmware zip** for your device from the link above.  
+   (File is usually named like `fw_redwood_miui_REDWOOD...zip`)
+2. **Transfer the firmware zip** to your PC (or leave it in your downloads folder).
+3. **Boot into recovery** (AOSP or TWRP):
+    - Power off your phone.
+    - Hold **Power** + **Volume Up** until recovery starts.
+4. In recovery, select **Apply Update from ADB**.
+5. On your PC, run:
+
+    ```
+    adb sideload fw_redwood_xxxxx.zip
+    ```
+
+   *(Replace `fw_redwood_xxxxx.zip` with the actual firmware file name.)*
+
+6. Wait for the process to complete.
+7. (Optional) After flashing firmware, you can sideload your ROM or reboot the system.
+
+> **Tip:**  
+> Flashing firmware does **not wipe your data** but is often recommended before a major ROM update or if you face modem/boot issues.
+
+---
+
+## 🔄 Change Partition Slot (Optional)
+
+If your device doesn't switch slots automatically, do this:
+
+```
+adb reboot bootloader
+fastboot getvar current-slot
+fastboot --set-active=b   # (If current slot is A, set to B. If B, set to A.)
+fastboot reboot
+```
+
+---
+
+## 🐧 Linux Fastboot Permission Issues
+
+If you get permission errors on Linux, use `sudo $(which fastboot)` instead of just `fastboot`:
+
+```
+sudo $(which fastboot) devices
+sudo $(which fastboot) flash vendor_boot vendor_boot.img
+```
+
+---
+
+## 🛡️ Flashing ROM with TWRP
+
+### 1. Download & Prepare
+
+- Download [twrp-TheStrechh-R2.img](https://sourceforge.net/projects/poco-x5-pro-roms/files/Twrp/twrp-TheStrechh-R2.img/download)
+- Download [Platform Tools for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip) or [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+- Extract platform tools and copy `boot.img` and `twrp-TheStrechh-R2.img` into the folder.
+
+### 2. Boot into TWRP
+
+- Open terminal in the platform-tools folder.
+- Run:
+
+    ```
+    fastboot boot twrp-TheStrechh-R2.img
+    ```
+
+- Your phone will boot into TWRP.
+
+### 3. Permanently Install TWRP
+
+- In TWRP: Go to **Advanced** → **Flash current TWRP** → Confirm.
+
+---
+
+### 📦 Flash ROM with TWRP (Option 1: Install from Storage)
+
+1. Download the ROM and transfer it to your phone.
+2. In TWRP: **Install** → select your `ROM.zip` → **Swipe to confirm**.
+3. (For clean flash) Go to **Wipe** → **Format Data** and **Wipe Cache** (Advanced Wipe).
+4. (Optional) Change active slot: **Reboot** → **Slot A/B** (choose the opposite of your current slot).
+5. In TWRP: **Advanced** → **Flash current TWRP** (to keep TWRP after reboot).
+6. Reboot system.
+
+---
+
+### 💻 Flash ROM with TWRP (Option 2: ADB Sideload)
+
+1. In TWRP: **Wipe** → **Format Data** → type `yes`.
+2. In TWRP: **Advanced** → **ADB Sideload**.
+3. On your PC, run:
+
+    ```
+    adb sideload rom.zip
+    ```
+
+4. In TWRP: **Advanced** → **Flash current TWRP**.
+5. (Optional) Reboot recovery and flash GApps or other add-ons.
+6. Reboot system.
+
+---
+
+## 📝 Additional Tips
+
+- **Always back up your data before flashing.**
+- If you encounter errors, double-check file names and paths.
+- For best results, use official cables and USB 2.0 ports.
+
+---
+
+**You’re ready to flash! If you have questions, check your device’s community or support forums for help.**
+```
+
+---
+
+**How to use:**  
+- Copy everything above (including the four backticks at the top and bottom).
+- Paste it into your GitHub `.md` file.
+- Save and preview for a complete, beginner-friendly, and efficient flashing guide—including the correct firmware flashing method!
+
+Let me know if you want further refinements, screenshots, or visual enhancements!
