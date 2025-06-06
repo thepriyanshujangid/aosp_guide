@@ -8,9 +8,11 @@
 
 ## 🖼️ What You Might See
 
-![Play Protect Error](image.png)
+<a href="https://github.com/user-attachments/assets/eeb81350-482d-4eb7-8b51-c6106b22a1c7" target="_blank">
+  <img src="https://github.com/user-attachments/assets/eeb81350-482d-4eb7-8b51-c6106b22a1c7" alt="Play Protect Error" width="300">
+</a>
 
----
+***
 
 ## 🛠️ Steps to Try
 
