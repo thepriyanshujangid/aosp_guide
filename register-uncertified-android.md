@@ -20,6 +20,7 @@
     - Connect your device to your PC
     - Enable USB Debugging
     - Open ksu manager go to superuser tab > shell and grant superuser permission
+    - Open your CMD OR Terminal
     - Run:
       ```
       adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
