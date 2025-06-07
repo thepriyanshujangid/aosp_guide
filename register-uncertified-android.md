@@ -23,7 +23,7 @@
     - Open your CMD OR Terminal
     - Run:
       ```
-      adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
+      adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
       ```
     - Copy the number you get (e.g., `4399677461041051781`)
 
