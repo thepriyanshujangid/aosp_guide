@@ -23,15 +23,18 @@
     - Open your CMD OR Terminal
     - Run:
       ```
+      adb shell pm clear com.google.android.gsf && adb reboot
+      ```
+      ```
       adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
       ```
     - Copy the number you get (e.g., `4399677461041051781`)
 
-2. **Register Your Device**
+1. **Register Your Device**
     - Go to: [https://www.google.com/android/uncertified](https://www.google.com/android/uncertified)
     - Paste your GSF Android ID and click **Register**
 
-3. **Clear Data for Google Play Store & Google Play Services**
+2. **Clear Data for Google Play Store & Google Play Services**
     - Go to **Settings > Apps > See all apps**
     - Tap **Google Play Store**
         - Tap **Storage & cache**
@@ -40,7 +43,7 @@
         - Tap **Storage & cache**
         - Tap **Clear Cache** and **Clear Storage/Data**
 
-4. **Reboot Your Device**
+3. **Reboot Your Device**
     - Restart your phone
     - Try opening the Play Store again
 
