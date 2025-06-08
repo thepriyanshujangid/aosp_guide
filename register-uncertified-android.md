@@ -18,8 +18,13 @@
 
 1. **Get Your GSF Android ID**
     - Connect your device to your PC
-    - Enable USB Debugging
-    - Open your CMD OR Terminal
+    - Enable USB and Rooted Debugging as shown below
+
+    <a href="https://github.com/user-attachments/assets/aa7d1441-0e95-4dde-9556-057f49369dff" target="_blank">
+    <img src="https://github.com/user-attachments/assets/aa7d1441-0e95-4dde-9556-057f49369dff" alt="Play Protect Error" height="350" width="300">
+    </a>
+    
+    - Now, Open your CMD OR Terminal
     - Run:
   <!-- # adb shell pm clear com.google.android.gsf && adb reboot -->
   ```
