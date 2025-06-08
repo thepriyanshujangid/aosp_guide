@@ -16,20 +16,9 @@
 
 ## 🛠️ Steps to Try
 
-1. **Clear Data for Google Play Store & Google Play Services**
-    - Go to **Settings > Apps > See all apps**
-    - Tap **Google Play Store**
-        - Tap **Storage & cache**
-        - Tap **Clear Cache** and **Clear Storage/Data**
-    - Tap **Google Play Services**
-        - Tap **Storage & cache**
-        - Tap **Clear Cache** and **Clear Storage/Data**
-        - Reboot your device
-
-2. **Get Your GSF Android ID**
+1. **Get Your GSF Android ID**
     - Connect your device to your PC
     - Enable USB Debugging
-    - Open ksu manager go to superuser tab > shell and grant superuser permission
     - Open your CMD OR Terminal
     - Run:
   <!-- # adb shell pm clear com.google.android.gsf && adb reboot -->
@@ -38,11 +27,16 @@
 
   - Copy the number you get (e.g., `4399677461041051781`)
 
-3. **Register Your Device**
+2. **Register Your Device**
     - Go to: [https://www.google.com/android/uncertified](https://www.google.com/android/uncertified)
     - Paste your GSF Android ID and click **Register**
 
-4. **Reboot Your Device**
+3. **Reboot is required**
+    - run
+   
+          adb shell pm clear com.android.vending && adb shell pm clear com.google.android.gms && adb reboot
+
+5. **Reboot Your Device**
     - Restart your phone
     - Try opening the Play Store again
 
