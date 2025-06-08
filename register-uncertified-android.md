@@ -22,24 +22,20 @@
     - Open your CMD OR Terminal
     - Run:
   <!-- # adb shell pm clear com.google.android.gsf && adb reboot -->
-  
+  ```
     adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
-
+```
   - Copy the number you get (e.g., `4399677461041051781`)
-
+---
 2. **Register Your Device**
     - Go to: [https://www.google.com/android/uncertified](https://www.google.com/android/uncertified)
     - Paste your GSF Android ID and click **Register**
-
-3. **Reboot is required**
+---
+3. **Clear Playstore Data And Reboot Your Device**
     - run
-   
-          adb shell pm clear com.android.vending && adb shell pm clear com.google.android.gms && adb reboot
-
-5. **Reboot Your Device**
-    - Restart your phone
-    - Try opening the Play Store again
-
+```
+   adb shell pm clear com.android.vending && adb shell pm clear com.google.android.gms && adb reboot
+```
 ---
 
 ✨ *Good luck, and happy Android customizing!*
