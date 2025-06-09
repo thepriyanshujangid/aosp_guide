@@ -1,3 +1,4 @@
+
 # 🚫 Fix "This device isn’t Play Protect certified" Error
 
 > **Purpose:**  
@@ -25,12 +26,15 @@
     </a>
     
     - Now, Open your CMD OR Terminal
-    - Run:
-  <!-- # adb shell pm clear com.google.android.gsf && adb reboot -->
-  ```
-    adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
-```
-  - Copy the number you get (e.g., `4399677461041051781`)
+    - If you are using **Linux**, run this command:
+      ```
+      adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
+      ```
+    - If you are using **Windows**, run this command:
+      ```
+      adb root && adb shell "sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db \"select * from main where name = 'android_id';\""
+      ```
+    - Copy the number you get (e.g., `4399677461041051781`)
 ---
 2. **Register Your Device**
     - Go to: [https://www.google.com/android/uncertified](https://www.google.com/android/uncertified)
@@ -44,4 +48,3 @@
 ---
 
 ✨ *Good luck, and happy Android customizing!*
-
