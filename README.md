@@ -39,11 +39,11 @@ After that, reffer to [universal_flashing_guide](universal_flashing-instrutions.
 
 ## 🐛 Troubleshooting Common Issues
 
-[Device Bootloops & Fixes](/toubleshoots/bootloops.md)
+[Device Bootloops & Fixes](/troubleshoots/bootloops.md)
 
-[ADB/Fastboot Not Recognizing Device](/toubleshoots/abd-fastboot-fix.md)
+[ADB/Fastboot Not Recognizing Device](/troubleshoots/adb-fastboot-fix.md)
 
-[Connectivity Problems (Wi-Fi, Bluetooth)](/toubleshoots/firmware.md)
+[Connectivity Problems (Wi-Fi, Bluetooth)](/troubleshoots/firmware.md)
 
 Don't have your issue listed here? Open an issue by clicking [here](https://github.com/thepriyanshujangid/aosp_guide/issues/new)
 
