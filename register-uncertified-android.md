@@ -28,7 +28,7 @@
     - Now, Open your CMD OR Terminal
     - If you are using **Linux**, run this command:
       ```
-      adb root && adb shell 'sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db "select * from main where name = \"android_id\";"'
+      adb root && user_id=$(adb shell cmd activity get-current-user) && adb shell "sqlite3 /data/user/${user_id}/com.google.android.gms/databases/gservices.db \"select * from main where name = 'android_id';\""
       ```
     - If you are using **Windows**, run this command:
       ```
