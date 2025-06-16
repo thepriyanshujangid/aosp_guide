@@ -32,7 +32,7 @@
       ```
     - If you are using **Windows**, run this command:
       ```
-      adb root && adb shell "sqlite3 /data/user/$(cmd activity get-current-user)/*/*/gservices.db \"select * from main where name = 'android_id';\""
+      adb root && adb shell "sqlite3 /data/user/0/com.google.android.gms/databases/gservices.db \"select * from main where name = 'android_id';\""
       ```
     - Copy the number you get (e.g., `4399677461041051781`)
 ---
