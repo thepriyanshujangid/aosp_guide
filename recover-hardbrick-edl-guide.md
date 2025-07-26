@@ -1,4 +1,3 @@
----
 
 ```markdown
 # 🛠 Recover Hardbricked POCO X5 Pro (EDL Unbrick Guide)
